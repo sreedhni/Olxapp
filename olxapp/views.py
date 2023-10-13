@@ -4,6 +4,7 @@ from django.views.generic import View
 from  olxapp.models import Olx
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
 
 # Create your views here.
 
@@ -21,9 +22,7 @@ class SignUpView(View):
         if form.is_valid():
             # form.save() we can see the password
             User.objects.create_user(**form.cleaned_data) #for hiding the password
-
-
-            return redirect("register")
+            return redirect("login")
         else:
             return render(request,"login.html",{"form":form})
 
@@ -40,10 +39,12 @@ class SignInView(View):
               usr=authenticate(request,username=uname,password=pwd)
               if usr:
                   login(request,usr)
+                  messages.success(request,"login successfully")
                   print("credentilas are valid")
                   return redirect("olx-add")
               else:
                   print("invalid credentilas")
+                  messages.error(request,"failed")
                   return render(request,"registration.html",{"form":form})
 
 
@@ -104,7 +105,6 @@ class OlxDeleteView(View):
 
      
        
-
 
 
     

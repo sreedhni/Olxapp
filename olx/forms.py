@@ -16,13 +16,6 @@ class LoginForm(forms.Form):
     password=forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
 
     
-
-
-
-
-
-
-
 class OlxCreateForm(forms.ModelForm):
     class Meta:
         model=Olx
@@ -34,8 +27,4 @@ class OlxCreateForm(forms.ModelForm):
                 "phone":forms.NumberInput(attrs={"class":"form-control"}),
                 
 
-
-                 
-                 
-
-        }
+ }
