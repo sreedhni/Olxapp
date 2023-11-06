@@ -21,6 +21,7 @@
                         <td>PRICE</td>
                         <td>CONTACT NUM</td>
                         <td>Action</td>
+                        <td>user</td>
                         
                     </tr>
                       {%for veh in vehicles%}
@@ -31,6 +32,7 @@
                         <td>{{veh.number}}</td>
                         <td>{{veh.price}}</td>
                         <td>{{veh.phone}}</td>
+                        <td>{{veh.user}}</td>
                         
                         <td>
                             <a href="{%url 'olx-detail' veh.id%}">VIEW</a>
